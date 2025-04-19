@@ -14,12 +14,40 @@ ShowCodeCopyButtons = true
 ShowRssButtonInSectionTermList = true
 ShowToc = true
 
-[params.homeInfoParams]
-Title = "欢迎来到我的博客 👋"
-Content = "这里是我的个人博客，我会在这里分享一些想法和经验。"
-
+# 启用 Profile Mode
 [params.profileMode]
-enabled = false
+enabled = true
+title = "👋 你好，我是..." # 你的名字
+subtitle = "这里是我的个人博客" # 个人简介
+imageUrl = "images/avatar.jpg"  # 改成实际的文件名
+imageTitle = "我的头像"
+imageWidth = 120
+imageHeight = 120
+
+# 社交媒体链接
+[[params.profileMode.buttons]]
+name = "文章"
+url = "/posts"
+
+[[params.profileMode.buttons]]
+name = "标签"
+url = "/tags"
+
+[[params.profileMode.buttons]]
+name = "分类"
+url = "/categories"
+
+# 社交图标链接
+[[params.socialIcons]]
+name = "github"
+url = "你的GitHub主页链接"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:你的邮箱"
+
+# 可以添加更多社交图标，支持的图标可以在主题文档中查看
+# 比如：twitter, linkedin, stackoverflow, zhihu 等
 
 [menu]
 main = [
