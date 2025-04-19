@@ -19,10 +19,10 @@ ShowToc = true
 enabled = true
 title = "👋 你好，我是..." # 你的名字
 subtitle = "这里是我的个人博客" # 个人简介
-imageUrl = "images/avatar.jpg"  # 改成实际的文件名
+imageUrl = "images/avatar.jpg"
 imageTitle = "我的头像"
-imageWidth = 120
-imageHeight = 120
+imageWidth = 200
+imageHeight = 200
 
 # 社交媒体链接
 [[params.profileMode.buttons]]
