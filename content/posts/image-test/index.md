@@ -12,23 +12,23 @@ categories: ["测试"]
 
 ## 测试图片1：鸢尾花分类结果
 
-![鸢尾花分类结果](/images/iris_classification.png)
+![鸢尾花分类结果](iris_classification.png)
 
 ## 测试图片2：混淆矩阵
 
-![混淆矩阵](/images/confusion_matrix_digits.png)
+![混淆矩阵](confusion_matrix_digits.png)
 
 ## 测试图片3：多项式特征分类
 
-![多项式特征分类](/images/polynomical_calssification.png)
+![多项式特征分类](polynomical_calssification.png)
 
 ## 测试图片4：SVM分类
 
-![SVM分类](/images/svm_classification.png)
+![SVM分类](svm_classification.png)
 
 ## 测试图片5：神经网络分类
 
-![神经网络分类](/images/nn_classification.png)
+![神经网络分类](nn_classification.png)
 
 ## 测试结果
 

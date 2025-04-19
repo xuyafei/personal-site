@@ -10,19 +10,19 @@ draft: false
 
 ### 🖼️ 1. Confusion Matrix (Digits)
 
-![Confusion Matrix](/images/confusion_matrix_digits.png)
+![Confusion Matrix](confusion_matrix_digits.png)
 
 ---
 
 ### 🖼️ 2. Iris 分类图
 
-![Iris 分类](/images/iris_classification.png)
+![Iris 分类](iris_classification.png)
 
 ---
 
 ### 🖼️ 3. 神经网络分类图
 
-![神经网络分类](/images/nn_classification.png)
+![神经网络分类](nn_classification.png)
 
 ---
 
@@ -30,13 +30,13 @@ draft: false
 
 > ⚠️ 文件名是 `polynomical_calssification.png`，注意不是 polynomial / classification。
 
-![多项式分类](/images/polynomical_calssification.png)
+![多项式分类](polynomical_calssification.png)
 
 ---
 
 ### 🖼️ 5. SVM 分类图
 
-![SVM 分类](/images/svm_classification.png)
+![SVM 分类](svm_classification.png)
 
 ---
 
