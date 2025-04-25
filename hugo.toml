@@ -27,7 +27,7 @@ imageHeight = 200
 # 社交媒体链接
 [[params.profileMode.buttons]]
 name = "文章"
-url = "/posts"
+url = "/personal-site/posts/" # 明确包含 baseURL 的子目录
 
 [[params.profileMode.buttons]]
 name = "标签"
@@ -60,3 +60,4 @@ main = [
 # 启用搜索功能
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
+section = [ "HTML", "RSS" ] # 明确为 section 类型添加 HTML 和 RSS 输出
