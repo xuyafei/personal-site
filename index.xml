@@ -1,4 +1,397 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>我的博客</title><link>https://xuyafei.github.io/personal-site/</link><description>Recent content on 我的博客</description><generator>Hugo -- 0.146.7</generator><language>zh-cn</language><lastBuildDate>Sun, 20 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://xuyafei.github.io/personal-site/index.xml" rel="self" type="application/rss+xml"/><item><title>回归分析基础讲解与实战代码（附图表展示）</title><link>https://xuyafei.github.io/personal-site/posts/regression/</link><pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/regression/</guid><description>详细讲解监督学习中的回归问题，包括线性回归的数学原理、Python实现以及数据可视化分析</description></item><item><title>C++ 引用详解：从基础到高级应用</title><link>https://xuyafei.github.io/personal-site/posts/cpp-references/</link><pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/cpp-references/</guid><description>全面解析 C++ 引用的概念、用法和最佳实践，包括左值引用、右值引用、引用折叠等高级特性</description></item><item><title>偏导数与梯度的概念详解</title><link>https://xuyafei.github.io/personal-site/posts/partial-derivatives-and-gradients/</link><pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/partial-derivatives-and-gradients/</guid><description>深入解析偏导数和梯度的概念，包括定义、几何意义、数学形式和应用场景，帮助读者理解这些重要的数学概念</description></item><item><title>KaTeX 测试</title><link>https://xuyafei.github.io/personal-site/posts/katex-test/</link><pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/katex-test/</guid><description>&lt;p>这是一个测试页面，包含行内公式和块级公式。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>我的博客</title><link>https://xuyafei.github.io/personal-site/</link><description>Recent content on 我的博客</description><generator>Hugo -- 0.146.7</generator><language>zh-cn</language><lastBuildDate>Sat, 26 Apr 2025 00:14:00 +0800</lastBuildDate><atom:link href="https://xuyafei.github.io/personal-site/index.xml" rel="self" type="application/rss+xml"/><item><title>回归分析基础讲解与实战代码（附图表展示）</title><link>https://xuyafei.github.io/personal-site/posts/regression/</link><pubDate>Sun, 20 Apr 2025 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/regression/</guid><description>详细讲解监督学习中的回归问题，包括线性回归的数学原理、Python实现以及数据可视化分析</description></item><item><title>C++ 引用详解：从基础到高级应用</title><link>https://xuyafei.github.io/personal-site/posts/cpp-references/</link><pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/cpp-references/</guid><description>全面解析 C++ 引用的概念、用法和最佳实践，包括左值引用、右值引用、引用折叠等高级特性</description></item><item><title>梯度优化初步理解与推导</title><link>https://xuyafei.github.io/personal-site/posts/preliminary-understanding-and-derivation-of-gradient-optimization/</link><pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/preliminary-understanding-and-derivation-of-gradient-optimization/</guid><description>从单变量到多变量函数，深入浅出地讲解梯度优化原理，包含数学推导与直观解释</description></item><item><title>偏导数与梯度的概念详解</title><link>https://xuyafei.github.io/personal-site/posts/partial-derivatives-and-gradients/</link><pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/partial-derivatives-and-gradients/</guid><description>深入解析偏导数和梯度的概念，包括定义、几何意义、数学形式和应用场景，帮助读者理解这些重要的数学概念</description></item><item><title>全面解析C++中类(class)与结构体(struct)的区别</title><link>https://xuyafei.github.io/personal-site/posts/cpp-class-vs-struct/</link><pubDate>Sat, 26 Apr 2025 00:14:00 +0800</pubDate><guid>https://xuyafei.github.io/personal-site/posts/cpp-class-vs-struct/</guid><description>&lt;h1 id="全面解析c中类class与结构体struct的区别">全面解析C++中类(class)与结构体(struct)的区别&lt;/h1>
+&lt;h2 id="一最核心区别默认访问控制">一、最核心区别：默认访问控制&lt;/h2>
+&lt;p>在C++中，&lt;code>class&lt;/code>和&lt;code>struct&lt;/code>的唯一语法区别在于默认访问权限：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 结构体示例
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">MyStruct&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x; &lt;span style="color:#75715e">// 默认public访问权限
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">foo&lt;/span>() {} &lt;span style="color:#75715e">// 默认public
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 类示例
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">MyClass&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x; &lt;span style="color:#75715e">// 默认private访问权限
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">bar&lt;/span>() {} &lt;span style="color:#75715e">// 默认private
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="继承时的默认权限">继承时的默认权限&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">D1&lt;/span> &lt;span style="color:#f92672">:&lt;/span> Base {}; &lt;span style="color:#75715e">// 默认public继承
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">D2&lt;/span> &lt;span style="color:#f92672">:&lt;/span> Base {}; &lt;span style="color:#75715e">// 默认private继承
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="二历史起源与设计哲学">二、历史起源与设计哲学&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>特性&lt;/th>
+&lt;th>struct (结构体)&lt;/th>
+&lt;th>class (类)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>诞生时间&lt;/td>
+&lt;td>源自C语言&lt;/td>
+&lt;td>C++新增概念&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>设计初衷&lt;/td>
+&lt;td>数据打包聚合&lt;/td>
+&lt;td>面向对象封装&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>核心理念&lt;/td>
+&lt;td>&amp;ldquo;这是一个数据集合&amp;rdquo;&lt;/td>
+&lt;td>&amp;ldquo;这是一个具有行为的对象&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="三实际开发中的惯用准则">三、实际开发中的惯用准则&lt;/h2>
+&lt;h3 id="应该使用struct的场景">应该使用struct的场景&lt;/h3>
+&lt;ol>
+&lt;li>纯数据集合&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Color&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">uint8_t&lt;/span> r, g, b, a; &lt;span style="color:#75715e">// 全部公有
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>简单值类型&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Point&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> x, y;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 可以包含简单方法
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">double&lt;/span> &lt;span style="color:#a6e22e">distance&lt;/span>() &lt;span style="color:#66d9ef">const&lt;/span> { &lt;span style="color:#66d9ef">return&lt;/span> sqrt(x&lt;span style="color:#f92672">*&lt;/span>x &lt;span style="color:#f92672">+&lt;/span> y&lt;span style="color:#f92672">*&lt;/span>y); }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>接口配置参数&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Config&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string title;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> width;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> height;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="应该使用class的场景">应该使用class的场景&lt;/h3>
+&lt;ol>
+&lt;li>需要封装的业务对象&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">BankAccount&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string owner_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> balance_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> deposit(&lt;span style="color:#66d9ef">double&lt;/span> amount) { &lt;span style="color:#75715e">/*...*/&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">withdraw&lt;/span>(&lt;span style="color:#66d9ef">double&lt;/span> amount) { &lt;span style="color:#75715e">/*...*/&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>需要复杂生命周期的资源管理&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DatabaseConnection&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Connection&lt;span style="color:#f92672">*&lt;/span> conn_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">explicit&lt;/span> DatabaseConnection(string url) { &lt;span style="color:#75715e">/*...*/&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">~&lt;/span>DatabaseConnection() { &lt;span style="color:#75715e">/* 自动释放资源 */&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>需要多态继承的体系&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Shape&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#66d9ef">double&lt;/span> area() &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="四技术能力完全对比">四、技术能力完全对比&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>语言特性&lt;/th>
+&lt;th>struct支持情况&lt;/th>
+&lt;th>class支持情况&lt;/th>
+&lt;th>示例代码&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>成员变量&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>int x;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>成员函数&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>void f() {}&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>访问控制&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>public:&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>构造函数/析构函数&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>~T() {}&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>运算符重载&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>T operator+()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>继承&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>struct D : B {};&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>虚函数&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>virtual void f() = 0;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>友元&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>friend class F;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>模板&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>✓&lt;/td>
+&lt;td>&lt;code>template&amp;lt;typename T&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="五模板元编程中的差异实践">五、模板元编程中的差异实践&lt;/h2>
+&lt;h3 id="struct在元编程中的优势">struct在元编程中的优势&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 类型特征检查通常用struct实现
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">template&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">typename&lt;/span> T&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">is_pointer&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">constexpr&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> value &lt;span style="color:#f92672">=&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">template&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">typename&lt;/span> T&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">is_pointer&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>T&lt;span style="color:#f92672">*&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">constexpr&lt;/span> &lt;span style="color:#66d9ef">bool&lt;/span> value &lt;span style="color:#f92672">=&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 使用示例
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">static_assert&lt;/span>(is_pointer&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">*&amp;gt;::&lt;/span>value, &lt;span style="color:#e6db74">&amp;#34;必须是指针类型&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="原因分析">原因分析&lt;/h3>
+&lt;ol>
+&lt;li>元编程通常需要公开所有成员&lt;/li>
+&lt;li>避免频繁写public关键字&lt;/li>
+&lt;li>符合&amp;quot;数据即接口&amp;quot;的元编程哲学&lt;/li>
+&lt;/ol>
+&lt;h2 id="六内存布局完全一致">六、内存布局完全一致&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">S&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> a;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> b;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">C&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> a;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> b;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 验证内存布局相同
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">static_assert&lt;/span>(&lt;span style="color:#66d9ef">sizeof&lt;/span>(S) &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#66d9ef">sizeof&lt;/span>(C));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static_assert&lt;/span>(offsetof(S, b) &lt;span style="color:#f92672">==&lt;/span> offsetof(C, b));
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="继承时的特殊情况">继承时的特殊情况&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">A&lt;/span> { &lt;span style="color:#66d9ef">int&lt;/span> x; };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">B&lt;/span> &lt;span style="color:#f92672">:&lt;/span> A { &lt;span style="color:#66d9ef">int&lt;/span> y; }; &lt;span style="color:#75715e">// 私有继承可能影响空基类优化
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="七与c语言的兼容性细节">七、与C语言的兼容性细节&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>特性&lt;/th>
+&lt;th>C struct&lt;/th>
+&lt;th>C++ struct&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>类型声明&lt;/td>
+&lt;td>必须带struct关键字&lt;/td>
+&lt;td>可直接作为类型名&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>成员函数&lt;/td>
+&lt;td>不支持&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>访问控制&lt;/td>
+&lt;td>无&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>静态成员&lt;/td>
+&lt;td>不支持&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="cc混合编程注意事项">C/C++混合编程注意事项：&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef __cplusplus
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">extern&lt;/span> &lt;span style="color:#e6db74">&amp;#34;C&amp;#34;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// 确保C兼容的布局
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">CCompatStruct&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> y;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef __cplusplus
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="八现代c中的最佳实践">八、现代C++中的最佳实践&lt;/h2>
+&lt;ol>
+&lt;li>结构化绑定(struct适用)&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Employee&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string name;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> id;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> salary;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> [name, id, salary] &lt;span style="color:#f92672">=&lt;/span> getEmployee(); &lt;span style="color:#75715e">// C++17结构化绑定
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>类的不变量维护(class适用)&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Temperature&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> kelvin_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">void&lt;/span> setCelsius(&lt;span style="color:#66d9ef">double&lt;/span> c) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> kelvin_ &lt;span style="color:#f92672">=&lt;/span> c &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">273.15&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> assert(kelvin_ &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;绝对温度不能为负&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>移动语义支持(两者均可)&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Buffer&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">uint8_t&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> data;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Buffer(Buffer&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> other) &lt;span style="color:#66d9ef">noexcept&lt;/span> &lt;span style="color:#f92672">:&lt;/span> data(std&lt;span style="color:#f92672">::&lt;/span>move(other.data)) {}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">FileHandle&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FILE&lt;span style="color:#f92672">*&lt;/span> handle_;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FileHandle(FileHandle&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> other) &lt;span style="color:#f92672">:&lt;/span> handle_(other.handle_) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> other.handle_ &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">nullptr&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="九完整特性对比表格">九、完整特性对比表格&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>对比维度&lt;/th>
+&lt;th>struct&lt;/th>
+&lt;th>class&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>基本性质&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>关键字&lt;/td>
+&lt;td>struct&lt;/td>
+&lt;td>class&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>默认访问权限&lt;/td>
+&lt;td>public&lt;/td>
+&lt;td>private&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>默认继承方式&lt;/td>
+&lt;td>public&lt;/td>
+&lt;td>private&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>设计用途&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>数据聚合&lt;/td>
+&lt;td>首选&lt;/td>
+&lt;td>可用但不惯用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>对象封装&lt;/td>
+&lt;td>可用但不惯用&lt;/td>
+&lt;td>首选&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>接口定义&lt;/td>
+&lt;td>适合POD接口&lt;/td>
+&lt;td>适合抽象接口&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>语法特性&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>成员函数&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>虚函数&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>友元声明&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;td>支持&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>其他特性&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>模板元编程&lt;/td>
+&lt;td>更常用&lt;/td>
+&lt;td>较少使用&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>C兼容性&lt;/td>
+&lt;td>部分兼容&lt;/td>
+&lt;td>不兼容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>内存布局&lt;/td>
+&lt;td>与class相同&lt;/td>
+&lt;td>与struct相同&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>结构化绑定&lt;/td>
+&lt;td>天然适合&lt;/td>
+&lt;td>需要显式tuple接口&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="十经典面试题解析">十、经典面试题解析&lt;/h2>
+&lt;h3 id="q1以下代码有何问题">Q1：以下代码有何问题？&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Circle&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> radius;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">public&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> area() &lt;span style="color:#66d9ef">const&lt;/span> { &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">3.14&lt;/span> &lt;span style="color:#f92672">*&lt;/span> radius &lt;span style="color:#f92672">*&lt;/span> radius; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Square&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> side;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">double&lt;/span> &lt;span style="color:#a6e22e">area&lt;/span>() &lt;span style="color:#66d9ef">const&lt;/span> { &lt;span style="color:#66d9ef">return&lt;/span> side &lt;span style="color:#f92672">*&lt;/span> side; }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>答案：&lt;/strong>&lt;/p></description></item><item><title>KaTeX 测试</title><link>https://xuyafei.github.io/personal-site/posts/katex-test/</link><pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/katex-test/</guid><description>&lt;p>这是一个测试页面，包含行内公式和块级公式。&lt;/p>
 &lt;hr>
 &lt;h3 id="-行内公式示例">✅ 行内公式示例：&lt;/h3>
 &lt;p>牛顿第二定律：$F = ma$，这个公式描述了力和加速度的关系。&lt;/p>
@@ -7,66 +400,4 @@
 &lt;p>下面是偏导数的定义：&lt;/p>
 &lt;p>$$
 \frac{\partial f}{\partial x_i} = \lim_{h \to 0} \frac{f(x_1, \dots, x_i + h, \dots, x_n) - f(x_1, \dots, x_n)}{h}
-$$&lt;/p></description></item><item><title>测试图片引用</title><link>https://xuyafei.github.io/personal-site/posts/test-images/</link><pubDate>Wed, 16 Apr 2025 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/test-images/</guid><description>&lt;p>本文用于测试在 Hugo 博客中引用 &lt;code>static/images/&lt;/code> 目录下的图片资源。&lt;/p>
-&lt;hr>
-&lt;h3 id="-1-confusion-matrix-digits">🖼️ 1. Confusion Matrix (Digits)&lt;/h3>
-&lt;p>&lt;img alt="Confusion Matrix" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/test-images/confusion_matrix_digits.png">&lt;/p>
-&lt;hr>
-&lt;h3 id="-2-iris-分类图">🖼️ 2. Iris 分类图&lt;/h3>
-&lt;p>&lt;img alt="Iris 分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/test-images/iris_classification.png">&lt;/p>
-&lt;hr>
-&lt;h3 id="-3-神经网络分类图">🖼️ 3. 神经网络分类图&lt;/h3>
-&lt;p>&lt;img alt="神经网络分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/test-images/nn_classification.png">&lt;/p>
-&lt;hr>
-&lt;h3 id="-4-多项式分类边界图注意拼写错误">🖼️ 4. 多项式分类边界图（注意拼写错误）&lt;/h3>
-&lt;blockquote>
-&lt;p>⚠️ 文件名是 &lt;code>polynomical_calssification.png&lt;/code>，注意不是 polynomial / classification。&lt;/p>&lt;/blockquote>
-&lt;p>&lt;img alt="多项式分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/test-images/polynomical_calssification.png">&lt;/p>
-&lt;hr>
-&lt;h3 id="-5-svm-分类图">🖼️ 5. SVM 分类图&lt;/h3>
-&lt;p>&lt;img alt="SVM 分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/test-images/svm_classification.png">&lt;/p>
-&lt;hr>
-&lt;p>如你所见，只要将图片放入 &lt;code>static/images/&lt;/code> 目录，并在文章中用 &lt;code>/images/xxx.png&lt;/code> 的方式引用即可完成图像展示。&lt;/p></description></item><item><title>图片显示测试</title><link>https://xuyafei.github.io/personal-site/posts/image-test/</link><pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/image-test/</guid><description>&lt;h1 id="图片显示测试">图片显示测试&lt;/h1>
-&lt;p>这是一篇测试文章，用于验证图片是否能正确显示。&lt;/p>
-&lt;h2 id="测试图片1鸢尾花分类结果">测试图片1：鸢尾花分类结果&lt;/h2>
-&lt;p>&lt;img alt="鸢尾花分类结果" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/image-test/iris_classification.png">&lt;/p>
-&lt;h2 id="测试图片2混淆矩阵">测试图片2：混淆矩阵&lt;/h2>
-&lt;p>&lt;img alt="混淆矩阵" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/image-test/confusion_matrix_digits.png">&lt;/p>
-&lt;h2 id="测试图片3多项式特征分类">测试图片3：多项式特征分类&lt;/h2>
-&lt;p>&lt;img alt="多项式特征分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/image-test/polynomical_calssification.png">&lt;/p>
-&lt;h2 id="测试图片4svm分类">测试图片4：SVM分类&lt;/h2>
-&lt;p>&lt;img alt="SVM分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/image-test/svm_classification.png">&lt;/p>
-&lt;h2 id="测试图片5神经网络分类">测试图片5：神经网络分类&lt;/h2>
-&lt;p>&lt;img alt="神经网络分类" loading="lazy" src="https://xuyafei.github.io/personal-site/posts/image-test/nn_classification.png">&lt;/p>
-&lt;h2 id="测试结果">测试结果&lt;/h2>
-&lt;p>如果上面的图片都能正确显示，说明图片路径和引用方式是正确的。如果有些图片无法显示，可能需要检查：&lt;/p>
-&lt;ol>
-&lt;li>图片文件是否已正确上传到 &lt;code>/static/images/&lt;/code> 目录&lt;/li>
-&lt;li>图片文件名是否与引用中的名称完全匹配（包括大小写）&lt;/li>
-&lt;li>图片路径是否正确（应该是 &lt;code>/images/&lt;/code> 开头）&lt;/li>
-&lt;/ol></description></item><item><title/><link>https://xuyafei.github.io/personal-site/posts/my-first-post/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xuyafei.github.io/personal-site/posts/my-first-post/</guid><description>&lt;p>baseURL = &amp;lsquo;&lt;a href="https://example.org/'">https://example.org/'&lt;/a>
-languageCode = &amp;lsquo;zh-cn&amp;rsquo;
-title = &amp;lsquo;我的博客&amp;rsquo;
-theme = &amp;lsquo;PaperMod&amp;rsquo;&lt;/p>
-&lt;h1 id="papermod-主题的基本配置">PaperMod 主题的基本配置&lt;/h1>
-&lt;p>[params]
-defaultTheme = &amp;ldquo;auto&amp;rdquo;
-ShowReadingTime = true
-ShowShareButtons = true
-ShowPostNavLinks = true
-ShowBreadCrumbs = true
-ShowCodeCopyButtons = true
-ShowRssButtonInSectionTermList = true
-ShowToc = true&lt;/p>
-&lt;p>[params.homeInfoParams]
-Title = &amp;ldquo;欢迎来到我的博客 👋&amp;rdquo;
-Content = &amp;ldquo;这里是我的个人博客，我会在这里分享一些想法和经验。&amp;rdquo;&lt;/p>
-&lt;p>[params.profileMode]
-enabled = false&lt;/p>
-&lt;p>[menu]
-main = [
-{identifier = &amp;ldquo;categories&amp;rdquo;, name = &amp;ldquo;分类&amp;rdquo;, url = &amp;ldquo;/categories/&amp;rdquo;, weight = 10},
-{identifier = &amp;ldquo;tags&amp;rdquo;, name = &amp;ldquo;标签&amp;rdquo;, url = &amp;ldquo;/tags/&amp;rdquo;, weight = 20},
-{identifier = &amp;ldquo;archives&amp;rdquo;, name = &amp;ldquo;归档&amp;rdquo;, url = &amp;ldquo;/archives/&amp;rdquo;, weight = 30},
-{identifier = &amp;ldquo;search&amp;rdquo;, name = &amp;ldquo;搜索&amp;rdquo;, url = &amp;ldquo;/search/&amp;rdquo;, weight = 40},
-]&lt;/p></description></item></channel></rss>
+$$&lt;/p></description></item></channel></rss>
