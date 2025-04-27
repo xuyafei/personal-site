@@ -11,7 +11,20 @@
 ( y ) 是预测值（因变量） ( x ) 是特征（自变量） ( w ) 是权重（斜率） ( b ) 是偏置项（截距） 模型目标 线性回归的目标是找到最优的 ( w ) 和 ( b )，使得预测值与真实值之间的误差最小。通常使用均方误差（MSE）作为优化目标： [ MSE = \frac{1}{n}\sum_{i=1}^n(y_i - \hat{y}_i)^2 ] 其中 ( y_i ) 是真实值，( \hat{y}_i ) 是预测值。
 2.2 单变量线性回归 概念解释 单变量线性回归是最简单的线性回归形式，只使用一个特征（自变量）来预测目标值。
 特点 只有一个自变量（特征） 可以在二维平面上直观地表示为一条直线 适合研究两个变量之间的简单线性关系 应用场景 房价与面积的关系 销量与广告投入的关系 学习时间与考试成绩的关系 2.3 多变量线性回归 概念解释 多变量线性回归使用多个特征来预测目标值，是单变量线性回归的扩展。
-...</p></div><footer class=entry-footer><span title='2025-04-20 00:00:00 +0000 UTC'>April 20, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;你的名字</footer><a class=entry-link aria-label="post link to 回归分析基础讲解与实战代码（附图表展示）" href=https://xuyafei.github.io/personal-site/posts/regression/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>梯度优化初步理解与推导</h2></header><div class=entry-content><p>梯度优化初步理解与推导 在训练机器学习模型时，我们经常会遇到一个核心任务：最小化一个损失函数。梯度优化就是最常见的一种优化方法，其中最基本的就是梯度下降法（Gradient Descent）。本文从最简单的单变量情况出发，逐步介绍梯度优化的基本概念，并通过推导来解释为什么变量的更新形式是"减去导数"。
+...</p></div><footer class=entry-footer><span title='2025-04-20 00:00:00 +0000 UTC'>April 20, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;你的名字</footer><a class=entry-link aria-label="post link to 回归分析基础讲解与实战代码（附图表展示）" href=https://xuyafei.github.io/personal-site/posts/regression/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>权重的数学意义与应用</h2></header><div class=entry-content><p>权重的数学意义与本质 1. 权重的数学定义：
+在数学中，“权重（weight）“是一种系数，表示一个值在整体中所占的重要程度。在加权求和、加权平均、线性组合等常见结构中，权重决定了每一项对结果的影响大小。例如，加权平均值的公式如下：
+$$ \bar{x} = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i} $$
+这里，( x_i ) 是第 ( i ) 个样本，( w_i ) 是其对应的权重。若所有权重相等，则公式退化为普通平均值。
+2. 权重的本质：线性代数视角
+从线性代数的角度看，权重构成了一个向量，用于对输入向量进行线性变换。例如：
+$$ y = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^{n} w_i x_i $$
+这里 $\mathbf{w} \in \mathbb{R}^n $ 是权重向量，$\mathbf{x} \in \mathbb{R}^n \ $是输入特征向量。这个点积运算实际上在投影 $\mathbf{x} $ 到 $ \mathbf{w} $ 方向，衡量两者的对齐程度。若权重是单位向量，则 $ y $ 等于 $\mathbf{x} $ 在该方向上的投影长度。
+因此，从本质上看，权重体现了“对哪个方向敏感”，代表了模型对不同特征维度的重要性认知。
+3. 权重的几何意义：决策边界与法向量
+在二维空间中，权重向量与决策边界的关系可以用下图直观展示：
+图1：权重向量、决策边界与法向量的几何关系
+这张图是一个二维坐标系，横轴是 $ x_1 $，纵轴是 $x_2 $。图中有三样重要的元素：
+...</p></div><footer class=entry-footer><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 权重的数学意义与应用" href=https://xuyafei.github.io/personal-site/posts/weights-and-math/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>梯度优化初步理解与推导</h2></header><div class=entry-content><p>梯度优化初步理解与推导 在训练机器学习模型时，我们经常会遇到一个核心任务：最小化一个损失函数。梯度优化就是最常见的一种优化方法，其中最基本的就是梯度下降法（Gradient Descent）。本文从最简单的单变量情况出发，逐步介绍梯度优化的基本概念，并通过推导来解释为什么变量的更新形式是"减去导数"。
 一、单变量函数的梯度优化 我们先考虑最简单的一维情形：目标是最小化一个单变量函数 ( f(x) )。
 假设当前我们在位置 ( x )，我们想要往某个方向移动一点，以期降低函数值。最直观的想法是，函数的导数（梯度）可以告诉我们函数在该点的变化趋势。
 如果导数为正，说明函数在这里是上升的，那么我们应该往左（负方向）走；如果导数为负，说明函数是下降的，我们应该往右（正方向）走。
