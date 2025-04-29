@@ -7,8 +7,8 @@
 就像一句比喻：
 “给出了一堆数据和结果，然后推导出一个公式”——这就是回归的核心本质。
 二、线性回归模型：单变量与多变量 2.1 线性回归的基本概念 线性回归是最基础也是最常用的回归分析方法。它通过建立因变量（预测目标）与自变量（特征）之间的线性关系来进行预测。
-数学表达式 线性回归的基本形式是： [ y = wx + b ] 其中：
-( y ) 是预测值（因变量） ( x ) 是特征（自变量） ( w ) 是权重（斜率） ( b ) 是偏置项（截距） 模型目标 线性回归的目标是找到最优的 ( w ) 和 ( b )，使得预测值与真实值之间的误差最小。通常使用均方误差（MSE）作为优化目标： [ MSE = \frac{1}{n}\sum_{i=1}^n(y_i - \hat{y}_i)^2 ] 其中 ( y_i ) 是真实值，( \hat{y}_i ) 是预测值。
+数学表达式 线性回归的基本形式是： $$y = wx + b $$ 其中：
+$y $ 是预测值（因变量） $x $ 是特征（自变量） $w $ 是权重（斜率） $b $ 是偏置项（截距） 模型目标 线性回归的目标是找到最优的 $w $ 和 $b $，使得预测值与真实值之间的误差最小。通常使用均方误差（MSE）作为优化目标： $$MSE = \frac{1}{n}\sum_{i=1}^n(y_i - \hat{y}_i)^2 $$ 其中 $y_i $ 是真实值，$\hat{y}_i $ 是预测值。
 2.2 单变量线性回归 概念解释 单变量线性回归是最简单的线性回归形式，只使用一个特征（自变量）来预测目标值。
 特点 只有一个自变量（特征） 可以在二维平面上直观地表示为一条直线 适合研究两个变量之间的简单线性关系 应用场景 房价与面积的关系 销量与广告投入的关系 学习时间与考试成绩的关系 2.3 多变量线性回归 概念解释 多变量线性回归使用多个特征来预测目标值，是单变量线性回归的扩展。
 ...</p></div><footer class=entry-footer><span title='2025-04-20 00:00:00 +0000 UTC'>April 20, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;你的名字</footer><a class=entry-link aria-label="post link to 回归分析基础讲解与实战代码（附图表展示）" href=https://xuyafei.github.io/personal-site/posts/regression/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>权重的数学意义与应用</h2></header><div class=entry-content><p>权重的数学意义与本质 1. 权重的数学定义：
@@ -24,18 +24,30 @@ $$ y = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^{n} w_i x_i $$
 在二维空间中，权重向量与决策边界的关系可以用下图直观展示：
 图1：权重向量、决策边界与法向量的几何关系
 这张图是一个二维坐标系，横轴是 $ x_1 $，纵轴是 $x_2 $。图中有三样重要的元素：
-...</p></div><footer class=entry-footer><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 权重的数学意义与应用" href=https://xuyafei.github.io/personal-site/posts/weights-and-math/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>梯度优化初步理解与推导</h2></header><div class=entry-content><p>梯度优化初步理解与推导 在训练机器学习模型时，我们经常会遇到一个核心任务：最小化一个损失函数。梯度优化就是最常见的一种优化方法，其中最基本的就是梯度下降法（Gradient Descent）。本文从最简单的单变量情况出发，逐步介绍梯度优化的基本概念，并通过推导来解释为什么变量的更新形式是"减去导数"。
-一、单变量函数的梯度优化 我们先考虑最简单的一维情形：目标是最小化一个单变量函数 ( f(x) )。
-假设当前我们在位置 ( x )，我们想要往某个方向移动一点，以期降低函数值。最直观的想法是，函数的导数（梯度）可以告诉我们函数在该点的变化趋势。
+...</p></div><footer class=entry-footer><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 权重的数学意义与应用" href=https://xuyafei.github.io/personal-site/posts/weights-and-math/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>理解损失函数：机器学习中不可或缺的关键</h2></header><div class=entry-content><p>理解损失函数：机器学习中不可或缺的关键 1. 基本概念 在机器学习和深度学习的世界里，**损失函数（Loss Function）**扮演着至关重要的角色。它是模型学习过程中不可或缺的一部分，用来衡量模型的预测结果与真实值之间的差距。
+1.1 定义 损失函数是一种数学工具，量化了模型预测结果 $\hat{y}$ 与真实标签 $y$ 之间的差异。损失越小，表明模型预测越准确；损失越大，说明模型需要进一步调整。
+通常记作 $L(\hat{y}, y)$。
+1.2 作用 损失函数的存在，为模型训练指明了优化方向。通过不断最小化损失函数的值，我们可以逐步提升模型的预测能力和泛化能力。
+2. 四种常见损失函数详解与可视化 在机器学习与深度学习中，**损失函数（Loss Function）**是衡量模型预测结果与真实结果之间差异的重要工具。本文将系统讲解四种经典的损失函数，并通过可视化帮助理解它们的特点和适用场景。
+2.1 回归任务中的损失函数 2.1.1 均方误差（MSE，Mean Squared Error） 定义 均方误差是预测值与真实值差异的平方和的平均：
+$$ \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2 $$
+其中 $y_i$ 是真实值，$\hat{y}_i$ 是预测值。
+特点 对离群点敏感：由于平方项，大误差被放大，适合需要强烈惩罚大误差的场景。 连续且可导：适合用梯度下降等优化方法。 应用范围 回归问题：如房价预测、温度预测、股票价格预测等。 可视化 图1：MSE损失函数曲线，呈现出光滑的抛物线形状，预测值越接近真实值，损失越小。
+2.1.2 平均绝对误差（MAE，Mean Absolute Error） 定义 平均绝对误差是预测值与真实值差异的绝对值的平均：
+$$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i| $$
+特点 对离群点不敏感：相比 MSE，MAE 对单个极端错误不那么敏感。 不可导于0处：在误差为0的位置不可导，优化可能较慢。 应用范围 回归问题：尤其在需要对每个样本公平处理时（如中位数回归任务）。 可视化 图2：MAE损失函数曲线，呈现V型折线，误差线性增加。
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 理解损失函数：机器学习中不可或缺的关键" href=https://xuyafei.github.io/personal-site/posts/loss-function/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>梯度优化初步理解与推导</h2></header><div class=entry-content><p>梯度优化初步理解与推导 在训练机器学习模型时，我们经常会遇到一个核心任务：最小化一个损失函数。梯度优化就是最常见的一种优化方法，其中最基本的就是梯度下降法（Gradient Descent）。本文从最简单的单变量情况出发，逐步介绍梯度优化的基本概念，并通过推导来解释为什么变量的更新形式是"减去导数"。
+一、单变量函数的梯度优化 我们先考虑最简单的一维情形：目标是最小化一个单变量函数 $f(x)$。
+假设当前我们在位置 $x$，我们想要往某个方向移动一点，以期降低函数值。最直观的想法是，函数的导数（梯度）可以告诉我们函数在该点的变化趋势。
 如果导数为正，说明函数在这里是上升的，那么我们应该往左（负方向）走；如果导数为负，说明函数是下降的，我们应该往右（正方向）走。
-因此，我们更新变量的方向应当与导数方向相反。如果步长设置为 ( \eta )（称为学习率），那么更新公式就是：
-[ x_{\text{new}} = x_{\text{old}} - \eta \cdot f’(x_{\text{old}}) ]
-二、学习率的引入 学习率 ( \eta ) 控制着我们每一步走多远。如果 ( \eta ) 太小，虽然方向对了，但前进非常缓慢，优化过程会很慢；如果 ( \eta ) 太大，可能会越过最小值，甚至震荡不收敛。
+因此，我们更新变量的方向应当与导数方向相反。如果步长设置为 $( \eta $（称为学习率），那么更新公式就是：
+$$ x_{\text{new}} = x_{\text{old}} - \eta \cdot f’(x_{\text{old}}) $$
+二、学习率的引入 学习率 $( \eta )$ 控制着我们每一步走多远。如果 $( \eta )$ 太小，虽然方向对了，但前进非常缓慢，优化过程会很慢；如果 $( \eta $ 太大，可能会越过最小值，甚至震荡不收敛。
 因此，选择合适的学习率非常关键。实际应用中可能会使用固定学习率、动态调整学习率、甚至使用不同优化器（如 Adam）来改进这个过程。
 三、为什么变量更新要"减去"导数？——从数学推导理解梯度下降 很多初学者会疑惑：为什么变量更新的公式是"减去"导数，而不是加上？这一节我们从泰勒展开和最优化理论的角度来做一个严格推导。
-3.1 优化目标：寻找最小值 我们希望寻找使函数 ( f(x) ) 最小的点。假设当前我们在某一点 ( x )，下一步想往某个方向 ( d ) 走一小步（大小为 ( \alpha )）。新的点就是：
-[ x_{\text{new}} = x + \alpha d ]
-3.2 用一阶泰勒展开近似函数变化 考虑函数 ( f(x + \alpha d) ) 在点 ( x ) 附近的变化情况，一阶泰勒展开为：
+3.1 优化目标：寻找最小值 我们希望寻找使函数 $( f(x) $ 最小的点。假设当前我们在某一点 $( x )$，下一步想往某个方向 $( d )$ 走一小步（大小为 $( \alpha )$。新的点就是：
+$$ x_{\text{new}} = x + \alpha d $$
+3.2 用一阶泰勒展开近似函数变化 考虑函数 $( f(x + \alpha d) )$ 在点 $( x )$ 附近的变化情况，一阶泰勒展开为：
 ...</p></div><footer class=entry-footer><span title='2024-03-21 00:00:00 +0000 UTC'>March 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 梯度优化初步理解与推导" href=https://xuyafei.github.io/personal-site/posts/preliminary-understanding-and-derivation-of-gradient-optimization/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>偏导数与梯度的概念详解</h2></header><div class=entry-content><p>1. 偏导数（Partial Derivative） 定义 偏导数是多元函数对某一个自变量的导数，表示当其他自变量固定时，函数沿该方向的变化率。
 通俗解释 想象你站在一个山坡上（函数 $f(x,y)$ 表示海拔）：
 对 $x$ 的偏导数（$\frac{\partial f}{\partial x}$）是仅沿东西方向移动时的坡度。 对 $y$ 的偏导数（$\frac{\partial f}{\partial y}$）是仅沿南北方向的坡度。 数学形式 对于函数 $f(x_1, x_2, \dots, x_n)$：
