@@ -25,7 +25,18 @@ $$ \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2 $$
 2.1.2 平均绝对误差（MAE，Mean Absolute Error） 定义 平均绝对误差是预测值与真实值差异的绝对值的平均：
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i| $$
 特点 对离群点不敏感：相比 MSE，MAE 对单个极端错误不那么敏感。 不可导于0处：在误差为0的位置不可导，优化可能较慢。 应用范围 回归问题：尤其在需要对每个样本公平处理时（如中位数回归任务）。 可视化 图2：MAE损失函数曲线，呈现V型折线，误差线性增加。
-...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 理解损失函数：机器学习中不可或缺的关键" href=https://xuyafei.github.io/personal-site/posts/loss-function/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 理解损失函数：机器学习中不可或缺的关键" href=https://xuyafei.github.io/personal-site/posts/loss-function/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>线性可分的二分类问题详解</h2></header><div class=entry-content><p>线性可分的二分类问题详解 一、问题背景 在二分类任务中，我们的目标是将输入空间中的样本分为两类，常记为类别 +1 和 -1。线性可分（Linearly Separable）是指存在一个超平面，能够将这两类样本完全正确地分开。
+二、形式化定义 设有一组训练样本：
+$$ \mathcal{D} = { (\mathbf{x}_i, y_i) \mid \mathbf{x}_i \in \mathbb{R}^d, y_i \in {+1, -1}, i = 1, \dots, N } $$
+其中，$\mathbf{x}_i$ 是特征向量，$y_i$ 是类别标签。
+线性分类器的形式为：
+$$ f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b $$
+其中，$\mathbf{w} \in \mathbb{R}^d$ 是权重向量，$b \in \mathbb{R}$ 是偏置。
+三、线性可分的数学条件 样本线性可分 ⇔ 存在一组参数 $(\mathbf{w}, b)$，使得对所有训练样本满足：
+$$ y_i (\mathbf{w}^\top \mathbf{x}_i + b) > 0, \quad \forall i $$
+含义是：
+如果 $y_i = +1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b > 0$ 如果 $y_i = -1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b &lt; 0$ 也就是说，样本在超平面 $f(\mathbf{x}) = 0$ 的同一侧上分别对应一个类别。
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 线性可分的二分类问题详解" href=https://xuyafei.github.io/personal-site/posts/detailed-explanation-of-linearly-separable-binary-classification-problem/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

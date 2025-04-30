@@ -43,7 +43,18 @@ $$ x_{\text{new}} = x + \alpha d $$
 $$ \frac{\partial f}{\partial x_i} = \lim_{h \to 0} \frac{f(x_1, \dots, x_i + h, \dots, x_n) - f(x_1, \dots, x_n)}{h} $$
 例子 设 $f(x,y) = x^2 + 3xy$：
 $\frac{\partial f}{\partial x} = 2x + 3y$ （视 $y$ 为常数） $\frac{\partial f}{\partial y} = 3x$ （视 $x$ 为常数） 2. 梯度（Gradient） 定义 梯度是一个向量，由函数在所有自变量上的偏导数组成，指向函数值增长最快的方向。
-...</p></div><footer class=entry-footer><span title='2024-04-07 00:00:00 +0000 UTC'>April 7, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;152 words&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 偏导数与梯度的概念详解" href=https://xuyafei.github.io/personal-site/posts/partial-derivatives-and-gradients/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2024-04-07 00:00:00 +0000 UTC'>April 7, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;152 words&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 偏导数与梯度的概念详解" href=https://xuyafei.github.io/personal-site/posts/partial-derivatives-and-gradients/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>线性可分的二分类问题详解</h2></header><div class=entry-content><p>线性可分的二分类问题详解 一、问题背景 在二分类任务中，我们的目标是将输入空间中的样本分为两类，常记为类别 +1 和 -1。线性可分（Linearly Separable）是指存在一个超平面，能够将这两类样本完全正确地分开。
+二、形式化定义 设有一组训练样本：
+$$ \mathcal{D} = { (\mathbf{x}_i, y_i) \mid \mathbf{x}_i \in \mathbb{R}^d, y_i \in {+1, -1}, i = 1, \dots, N } $$
+其中，$\mathbf{x}_i$ 是特征向量，$y_i$ 是类别标签。
+线性分类器的形式为：
+$$ f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b $$
+其中，$\mathbf{w} \in \mathbb{R}^d$ 是权重向量，$b \in \mathbb{R}$ 是偏置。
+三、线性可分的数学条件 样本线性可分 ⇔ 存在一组参数 $(\mathbf{w}, b)$，使得对所有训练样本满足：
+$$ y_i (\mathbf{w}^\top \mathbf{x}_i + b) > 0, \quad \forall i $$
+含义是：
+如果 $y_i = +1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b > 0$ 如果 $y_i = -1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b &lt; 0$ 也就是说，样本在超平面 $f(\mathbf{x}) = 0$ 的同一侧上分别对应一个类别。
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 线性可分的二分类问题详解" href=https://xuyafei.github.io/personal-site/posts/detailed-explanation-of-linearly-separable-binary-classification-problem/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
