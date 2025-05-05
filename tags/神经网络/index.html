@@ -13,7 +13,15 @@ $$ y = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^{n} w_i x_i $$
 在二维空间中，权重向量与决策边界的关系可以用下图直观展示：
 图1：权重向量、决策边界与法向量的几何关系
 这张图是一个二维坐标系，横轴是 $ x_1 $，纵轴是 $x_2 $。图中有三样重要的元素：
-...</p></div><footer class=entry-footer><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 权重的数学意义与应用" href=https://xuyafei.github.io/personal-site/posts/weights-and-math/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2024-04-21 00:00:00 +0000 UTC'>April 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 权重的数学意义与应用" href=https://xuyafei.github.io/personal-site/posts/weights-and-math/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>感知器模型详解与可视化推导</h2></header><div class=entry-content><p>感知器模型详解与可视化推导 一、感知器模型简介 感知器（Perceptron）是最早的神经网络模型之一，由 Frank Rosenblatt 在 1958 年提出，主要用于解决线性可分的二分类问题。
+感知器的基本形式 给定输入向量 $\mathbf{x} \in \mathbb{R}^n$ 和权重向量 $\mathbf{w} \in \mathbb{R}^n$，感知器的输出由以下公式确定：
+$$ f(\mathbf{x}) = \text{sign}(\mathbf{w}^T \mathbf{x} + b) $$
+其中：
+$\mathbf{w}$ 是权重向量 $b$ 是偏置项 $\text{sign}(\cdot)$ 是符号函数，返回 +1 或 -1 感知器的目标是找到合适的 $(\mathbf{w}, b)$ 使得对所有训练样本 $(\mathbf{x}_i, y_i)$ 有：
+$$ y_i (\mathbf{w}^T \mathbf{x}_i + b) > 0 $$
+二、感知器的训练过程 感知器的训练过程是一个迭代更新的过程：
+初始化权重 $\mathbf{w}=\mathbf{0}$，偏置 $b=0$ 对于每个训练样本 $\mathbf{x}_i$，若有分类错误（即 $y_i(\mathbf{w}^T \mathbf{x}_i + b) \leq 0$），则更新： $$ \mathbf{w} \leftarrow \mathbf{w} + \eta y_i \mathbf{x}_i $$
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 感知器模型详解与可视化推导" href=https://xuyafei.github.io/personal-site/posts/detailed-explanationvisualization-derivation-of-perceptron-model/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

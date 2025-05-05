@@ -37,7 +37,15 @@ $$ x_{\text{new}} = x_{\text{old}} - \eta \cdot f’(x_{\text{old}}) $$
 3.1 优化目标：寻找最小值 我们希望寻找使函数 $( f(x) $ 最小的点。假设当前我们在某一点 $( x )$，下一步想往某个方向 $( d )$ 走一小步（大小为 $( \alpha )$。新的点就是：
 $$ x_{\text{new}} = x + \alpha d $$
 3.2 用一阶泰勒展开近似函数变化 考虑函数 $( f(x + \alpha d) )$ 在点 $( x )$ 附近的变化情况，一阶泰勒展开为：
-...</p></div><footer class=entry-footer><span title='2024-03-21 00:00:00 +0000 UTC'>March 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 梯度优化初步理解与推导" href=https://xuyafei.github.io/personal-site/posts/preliminary-understanding-and-derivation-of-gradient-optimization/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>偏导数与梯度的概念详解</h2></header><div class=entry-content><p>1. 偏导数（Partial Derivative） 定义 偏导数是多元函数对某一个自变量的导数，表示当其他自变量固定时，函数沿该方向的变化率。
+...</p></div><footer class=entry-footer><span title='2024-03-21 00:00:00 +0000 UTC'>March 21, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 梯度优化初步理解与推导" href=https://xuyafei.github.io/personal-site/posts/preliminary-understanding-and-derivation-of-gradient-optimization/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>感知器模型详解与可视化推导</h2></header><div class=entry-content><p>感知器模型详解与可视化推导 一、感知器模型简介 感知器（Perceptron）是最早的神经网络模型之一，由 Frank Rosenblatt 在 1958 年提出，主要用于解决线性可分的二分类问题。
+感知器的基本形式 给定输入向量 $\mathbf{x} \in \mathbb{R}^n$ 和权重向量 $\mathbf{w} \in \mathbb{R}^n$，感知器的输出由以下公式确定：
+$$ f(\mathbf{x}) = \text{sign}(\mathbf{w}^T \mathbf{x} + b) $$
+其中：
+$\mathbf{w}$ 是权重向量 $b$ 是偏置项 $\text{sign}(\cdot)$ 是符号函数，返回 +1 或 -1 感知器的目标是找到合适的 $(\mathbf{w}, b)$ 使得对所有训练样本 $(\mathbf{x}_i, y_i)$ 有：
+$$ y_i (\mathbf{w}^T \mathbf{x}_i + b) > 0 $$
+二、感知器的训练过程 感知器的训练过程是一个迭代更新的过程：
+初始化权重 $\mathbf{w}=\mathbf{0}$，偏置 $b=0$ 对于每个训练样本 $\mathbf{x}_i$，若有分类错误（即 $y_i(\mathbf{w}^T \mathbf{x}_i + b) \leq 0$），则更新： $$ \mathbf{w} \leftarrow \mathbf{w} + \eta y_i \mathbf{x}_i $$
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 感知器模型详解与可视化推导" href=https://xuyafei.github.io/personal-site/posts/detailed-explanationvisualization-derivation-of-perceptron-model/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>偏导数与梯度的概念详解</h2></header><div class=entry-content><p>1. 偏导数（Partial Derivative） 定义 偏导数是多元函数对某一个自变量的导数，表示当其他自变量固定时，函数沿该方向的变化率。
 通俗解释 想象你站在一个山坡上（函数 $f(x,y)$ 表示海拔）：
 对 $x$ 的偏导数（$\frac{\partial f}{\partial x}$）是仅沿东西方向移动时的坡度。 对 $y$ 的偏导数（$\frac{\partial f}{\partial y}$）是仅沿南北方向的坡度。 数学形式 对于函数 $f(x_1, x_2, \dots, x_n)$：
 $$ \frac{\partial f}{\partial x_i} = \lim_{h \to 0} \frac{f(x_1, \dots, x_i + h, \dots, x_n) - f(x_1, \dots, x_n)}{h} $$

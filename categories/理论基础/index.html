@@ -25,7 +25,15 @@ $$ \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2 $$
 2.1.2 平均绝对误差（MAE，Mean Absolute Error） 定义 平均绝对误差是预测值与真实值差异的绝对值的平均：
 $$ \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i| $$
 特点 对离群点不敏感：相比 MSE，MAE 对单个极端错误不那么敏感。 不可导于0处：在误差为0的位置不可导，优化可能较慢。 应用范围 回归问题：尤其在需要对每个样本公平处理时（如中位数回归任务）。 可视化 图2：MAE损失函数曲线，呈现V型折线，误差线性增加。
-...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 理解损失函数：机器学习中不可或缺的关键" href=https://xuyafei.github.io/personal-site/posts/loss-function/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>线性可分的二分类问题详解</h2></header><div class=entry-content><p>线性可分的二分类问题详解 一、问题背景 在二分类任务中，我们的目标是将输入空间中的样本分为两类，常记为类别 +1 和 -1。线性可分（Linearly Separable）是指存在一个超平面，能够将这两类样本完全正确地分开。
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 理解损失函数：机器学习中不可或缺的关键" href=https://xuyafei.github.io/personal-site/posts/loss-function/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>感知器模型详解与可视化推导</h2></header><div class=entry-content><p>感知器模型详解与可视化推导 一、感知器模型简介 感知器（Perceptron）是最早的神经网络模型之一，由 Frank Rosenblatt 在 1958 年提出，主要用于解决线性可分的二分类问题。
+感知器的基本形式 给定输入向量 $\mathbf{x} \in \mathbb{R}^n$ 和权重向量 $\mathbf{w} \in \mathbb{R}^n$，感知器的输出由以下公式确定：
+$$ f(\mathbf{x}) = \text{sign}(\mathbf{w}^T \mathbf{x} + b) $$
+其中：
+$\mathbf{w}$ 是权重向量 $b$ 是偏置项 $\text{sign}(\cdot)$ 是符号函数，返回 +1 或 -1 感知器的目标是找到合适的 $(\mathbf{w}, b)$ 使得对所有训练样本 $(\mathbf{x}_i, y_i)$ 有：
+$$ y_i (\mathbf{w}^T \mathbf{x}_i + b) > 0 $$
+二、感知器的训练过程 感知器的训练过程是一个迭代更新的过程：
+初始化权重 $\mathbf{w}=\mathbf{0}$，偏置 $b=0$ 对于每个训练样本 $\mathbf{x}_i$，若有分类错误（即 $y_i(\mathbf{w}^T \mathbf{x}_i + b) \leq 0$），则更新： $$ \mathbf{w} \leftarrow \mathbf{w} + \eta y_i \mathbf{x}_i $$
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 感知器模型详解与可视化推导" href=https://xuyafei.github.io/personal-site/posts/detailed-explanationvisualization-derivation-of-perceptron-model/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>线性可分的二分类问题详解</h2></header><div class=entry-content><p>线性可分的二分类问题详解 一、问题背景 在二分类任务中，我们的目标是将输入空间中的样本分为两类，常记为类别 +1 和 -1。线性可分（Linearly Separable）是指存在一个超平面，能够将这两类样本完全正确地分开。
 二、形式化定义 设有一组训练样本：
 $$ \mathcal{D} = { (\mathbf{x}_i, y_i) \mid \mathbf{x}_i \in \mathbb{R}^d, y_i \in {+1, -1}, i = 1, \dots, N } $$
 其中，$\mathbf{x}_i$ 是特征向量，$y_i$ 是类别标签。
