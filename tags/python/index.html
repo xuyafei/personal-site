@@ -30,7 +30,13 @@ $$ f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b $$
 $$ y_i (\mathbf{w}^\top \mathbf{x}_i + b) > 0, \quad \forall i $$
 含义是：
 如果 $y_i = +1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b > 0$ 如果 $y_i = -1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b &lt; 0$ 也就是说，样本在超平面 $f(\mathbf{x}) = 0$ 的同一侧上分别对应一个类别。
-...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 线性可分的二分类问题详解" href=https://xuyafei.github.io/personal-site/posts/detailed-explanation-of-linearly-separable-binary-classification-problem/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 线性可分的二分类问题详解" href=https://xuyafei.github.io/personal-site/posts/detailed-explanation-of-linearly-separable-binary-classification-problem/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>自适应滤波器与回声消除（AEC）原理详解</h2></header><div class=entry-content><p>自适应滤波器与回声消除（AEC）原理详解 核心原理 自适应滤波器之所以能够用于回声消除（AEC），核心原因在于它可以动态估计并还原"回声路径"，然后将这一估计出的回声信号从麦克风输入中减去，从而实现回声的抑制甚至消除。
+原理简述 🧠 在回声消除系统中，自适应滤波器会根据扬声器输出（远端信号）来预测它在麦克风中会出现的形式（回声），然后从实际的麦克风输入中减去这个预测的信号。
+基本信号模型 📦 设：
+x(n)：远端信号（扬声器播放） d(n)：麦克风信号（含近端语音 + 回声） y(n)：自适应滤波器输出（回声的估计） e(n)：误差信号（d(n) - y(n)，理论上就是近端语音） 自适应滤波器目标是： $$ y(n) ≈ 回声分量 = x(n) * h(n) $$ 其中 h(n) 是回声路径（扬声器到麦克风的模拟传输特性，可能包含混响、设备响应等）。
+最终： $$ e(n) = d(n) - y(n) ≈ 近端语音 $$
+自适应滤波器工作机制 ⚙️ 使用如 LMS（Least Mean Square）或 NLMS 算法，通过最小化 e(n) 的能量来不断更新滤波器系数 当估计越来越准时，y(n) 趋近于回声，e(n) 就接近纯近端语音 为什么它能成功 🔍 因果建模：回声路径是因果的，即某时刻的扬声器输出 x(n) 会在未来若干毫秒后以回声的形式出现在麦克风中 线性建模有效：大多数设备在一定条件下，其声学路径可以较好地用线性模型（FIR 滤波器）表示 反馈优化：误差信号 e(n) 反馈用于更新滤波器参数，不断逼近真实的回声路径响应 挑战情况 🚫 双讲问题：远近端同时说话时，远端信号和近端语音混合后，误差信号不再纯粹代表回声误差，滤波器容易被误导 非线性失真：如设备中存在非线性放大、限幅等，使得简单线性滤波器难以完全建模 LMS 算法详解 LMS（Least Mean Squares，最小均方）算法是一种自适应滤波算法，它通过不断调整滤波器的系数，使得输出信号尽可能逼近目标信号（期望信号）。
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 自适应滤波器与回声消除（AEC）原理详解" href=https://xuyafei.github.io/personal-site/posts/adaptive_filter_aec/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
