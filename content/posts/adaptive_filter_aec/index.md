@@ -181,7 +181,7 @@ $$
 为了让估计的回声更接近实际的回声，我们用误差信号 e(n) 来更新 w(n)：
 
 $$
-w_i(n+1) = w_i(n) + \mu \cdot e(n) \cdot x(n-i)
+w_i(n+1) = w_i(n) + μ \cdot e(n) \cdot x(n-i)
 $$
 
 其中：
@@ -286,7 +286,7 @@ $$
 - 如果 μ 太大可能不稳定，太小会收敛慢。
 
 ![LMS 自适应滤波器的系数](figure1.png)
-上图展示了 LMS 自适应滤波器的系数（蓝色曲线）如何逐步逼近真实的回声路径（黑色虚线），也就是滤波器“收敛”到一个能产生回声估计的理想状态。
+上图展示了 LMS 自适应滤波器的系数（蓝色曲线）如何逐步逼近真实的回声路径（黑色虚线），也就是滤波器"收敛"到一个能产生回声估计的理想状态。
 
 一、LMS 原理再总结一下：
 
@@ -426,6 +426,424 @@ plt.show()
 - 正确划分：红点在直线一侧，蓝点在另一侧 ⇒ 线性可分
 - w = w + 2 * mu * e * x：LMS核心公式，根据误差和输入更新滤波器。
 
+
+### 以下是一个详细注释的 C 语言实现版本，用于演示 LMS（最小均方）算法在回声消除中的应用。这个示例简化了音频采集和播放部分，重点在于展示 LMS 核心逻辑，便于你在嵌入式或实时音频系统中改写和集成。
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#define N 500       // 总样本数
+#define M 3         // 滤波器长度
+#define MU 0.01f    // 学习率
+
+// 模拟数据初始化函数
+void generate_signals(float* far_end, float* mic_signal, float* near_end_voice, float* echo_path, int len) {
+    for (int i = 0; i < len; i++) {
+        // 模拟远端信号（扬声器输出）
+        far_end[i] = ((float)rand() / RAND_MAX - 0.5f) * 1.0f;
+
+        // 模拟近端人声（小幅噪声）
+        near_end_voice[i] = ((float)rand() / RAND_MAX - 0.5f) * 0.2f;
+    }
+
+    // 通过 FIR 卷积方式模拟回声路径
+    for (int i = 0; i < len; i++) {
+        mic_signal[i] = near_end_voice[i]; // 初始化为近端人声
+        for (int j = 0; j < M; j++) {
+            if (i - j >= 0) {
+                mic_signal[i] += echo_path[j] * far_end[i - j]; // 添加模拟回声
+            }
+        }
+    }
+}
+
+int main() {
+    float far_end[N];         // 扬声器信号
+    float near_end_voice[N]; // 人声（麦克风中希望保留的成分）
+    float mic_signal[N];      // 麦克风采到的信号（人声 + 回声）
+    float echo_path[M] = {0.6f, 0.3f, 0.1f}; // 模拟的回声通道
+
+    float w[M] = {0};         // 滤波器系数（自适应学习）
+    float output[N] = {0};    // 滤波器输出（估计的回声）
+    float error[N] = {0};     // 误差信号（目标是只保留人声）
+
+    // 生成输入数据
+    generate_signals(far_end, mic_signal, near_end_voice, echo_path, N);
+
+    // LMS 核心算法
+    for (int n = M; n < N; n++) {
+        float x[M];   // 输入窗口
+        float y = 0;  // 滤波器输出
+        float e;      // 当前误差
+
+        // 构造输入向量（倒序）
+        for (int i = 0; i < M; i++) {
+            x[i] = far_end[n - i];
+        }
+
+        // 滤波器输出 y(n) = w(n)^T * x(n)
+        for (int i = 0; i < M; i++) {
+            y += w[i] * x[i];
+        }
+
+        // 误差 e(n) = d(n) - y(n)
+        e = mic_signal[n] - y;
+
+        // LMS 更新 w(n+1) = w(n) + 2 * mu * e(n) * x(n)
+        for (int i = 0; i < M; i++) {
+            w[i] += 2 * MU * e * x[i];
+        }
+
+        // 保存输出和误差
+        output[n] = y;
+        error[n] = e;
+    }
+
+    // 打印最后的滤波器系数
+    printf("Final filter coefficients:\n");
+    for (int i = 0; i < M; i++) {
+        printf("w[%d] = %f\n", i, w[i]);
+    }
+
+    // 打印前几十个误差信号样本（可视化用）
+    printf("\nFirst 20 error samples (near-end voice only):\n");
+    for (int i = 0; i < 20; i++) {
+        printf("%d: %f\n", i, error[i]);
+    }
+
+    return 0;
+}
+```
+
+📌 实现要点说明
+
+| 元素 | 说明 |
+|------|------|
+| echo_path[] | 用于模拟回声传播通道，真实系统中是未知的，由 w[] 学习逼近。|
+| far_end[] | 远端发送来的音频，被扬声器播放，会被麦克风"听到"形成回声。|
+| mic_signal[] | 麦克风接收的音频，包含远端回声和近端说话声（需要保留）。|
+| w[] | 自适应滤波器的系数，迭代更新，目标是使 output[] 接近实际回声，从而让 error[] 剩下近端语音。|
+| MU | 步长（学习率），控制收敛速度与稳定性，太大会发散，太小收敛慢。|
+
+✅ 一、自适应滤波器结构在代码中的体现
+
+在 C 代码中，自适应滤波器是以 FIR（有限脉冲响应）结构 + LMS 更新算法 实现的。我们来分解两部分：
+
+1. 滤波器结构体现（FIR 结构）
+
+在这段代码里：
+```c
+for (int i = 0; i < M; i++) {
+    x[i] = far_end[n - i];   // 输入窗口：延迟线结构
+}
+for (int i = 0; i < M; i++) {
+    y += w[i] * x[i];        // FIR 滤波器加权输出
+}
+```
+这就实现了一个 M 阶的 FIR 滤波器：
+- x[i] 是远端信号延迟线（delay line）
+- w[i] 是自适应滤波器系数（adaptive taps）
+- 输出 y 是回声估计
+
+2. 滤波器更新（LMS 自适应）
+```c
+e = mic_signal[n] - y;             // 误差 = 实际麦克风 - 滤波器估计回声
+for (int i = 0; i < M; i++) {
+    w[i] += 2 * MU * e * x[i];     // LMS 核心更新公式
+}
+```
+这部分是 LMS 学习过程：根据误差信号来调整每一个滤波器权重。
+
+总结：
+- FIR 结构是固定的：x 和 w 做加权和
+- 自适应发生在权重 w 上：它不断调整以最小化误差
+
+✅ 二、引入 NLMS（Normalized LMS）以增强稳定性
+
+🧠 问题：LMS 的稳定性受输入信号能量变化影响
+
+在原始 LMS 中：
+```c
+w[i] += 2 * MU * e * x[i];
+```
+如果 x[i] 很大（信号能量高），更新步长可能过大，导致发散。
+
+🔧 解决：引入 NLMS（Normalized LMS）
+
+NLMS 核心思想：对每次更新除以输入信号的能量，以实现归一化。
+
+✅ NLMS 更新公式：
+
+$$
+w(n+1) = w(n) + \mu \cdot \frac{e(n) \cdot x(n)}{\delta + \|x(n)\|^2}
+$$
+- \mu：步长（一般小于 1）
+- \delta：微小常数，防止除 0
+- \|x(n)\|^2：当前输入信号能量（即 x 的平方和）
+
+✅ C 语言替代 LMS 更新段（加入 NLMS）：
+```c
+float norm = 0.0001f;  // δ，防止除 0
+// 计算输入向量的能量（平方和）
+for (int i = 0; i < M; i++) {
+    norm += x[i] * x[i];
+}
+// NLMS 更新
+for (int i = 0; i < M; i++) {
+    w[i] += MU * e * x[i] / norm;
+}
+```
+优点：
+- 在远端信号强弱变化时依然稳定
+- 更快收敛、更少抖动，常用于语音通话中的 AEC
+
+✅ 三、双讲（Double-Talk）检测与保护机制
+
+🧠 问题：当双方同时讲话（即近端和远端都有声音），
+
+麦克风中不再只有回声，误差信号中含有近端人声。
+
+如果 LMS/NLMS 在此时还继续更新权重，可能会误把人声当作回声学习进去，导致近端语音也被"消除"。
+🛡️ 解决方法：双讲检测 + 更新冻结
+
+典型策略：
+1. 检测双讲（Double-Talk Detector）
+比较：
+- 回声估计误差 |e(n)|
+- 麦克风能量 |d(n)|
+- 远端信号能量 |x(n)|
+如果误差较大，但远端信号不强，说明有近端人声，可能是双讲。
+2. 冻结滤波器更新（Skip LMS/NLMS update）
+
+✅ 示例伪代码（简化）：
+```c
+float mic_power = mic_signal[n] * mic_signal[n];
+float far_power = 0.0f;
+for (int i = 0; i < M; i++) {
+    far_power += x[i] * x[i];
+}
+// 简单阈值检测（也可以用协方差检测等更复杂方法）
+if (mic_power > THRESHOLD && far_power < LOW_ENERGY_THRESH) {
+    freeze_update = 1; // 双讲，暂停自适应
+} else {
+    freeze_update = 0;
+}
+if (!freeze_update) {
+    // 执行 LMS/NLMS 更新
+}
+```
+注：这只是最简单的检测方法，实际产品中常用 Geigel 算法、双通道协方差估计 等更鲁棒方法。
+
+✅ 总结结构图
+
+```
+     +---------------------+
+ Far-End |      x[n]          |<----------+
+ Signal  +---------------------+          |
+         | FIR Filter (w[n])   |          |
+         +---------------------+          |
+                         | y[n]           |
+                         v                |
+         +---------------------+          |
+         | Error: e[n]=d[n]-y[n]|          |
+         +---------------------+          |
+                         |                |
+                         v                |
+          +--------------------------+    |
+          |  Double-Talk Detector    |----+
+          +--------------------------+
+                         |
+                Freeze Update?
+                         |
+                         v
+              +------------------+
+              | LMS/NLMS Update  |
+              +------------------+
+                         |
+                    w[n+1]
+```
+
+下面是一个完整的 C 语言实现，结合了以下三部分：
+1. ✅ FIR 结构 + NLMS（归一化 LMS）更新公式
+2. ✅ 双讲检测（Double-Talk Detection）
+3. ✅ 检测期间冻结更新（保护滤波器）
+
+⸻
+
+✅ 完整 C 语言实现：NLMS + 双讲检测保护
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define FRAME_LEN 160       // 每帧样本数（10ms @ 16kHz）
+#define FILTER_LEN 128      // 滤波器阶数（tap数）
+#define MU         0.8f     // 步长参数
+#define EPSILON    1e-6f    // 防止除以0
+#define DTD_THRESH 2.0f     // 双讲检测阈值
+
+// 模拟数据接口（实际使用中应连接声卡/录音数据）
+float get_far_end_sample(int n);
+float get_mic_sample(int n);
+
+// NLMS + DTD 主处理函数
+void aec_process(float* mic_signal, float* far_end_signal, float* out_signal, int len) {
+    float w[FILTER_LEN] = {0};         // 滤波器权重初始化为 0
+    float x[FILTER_LEN] = {0};         // 输入延迟线（远端）
+    float e = 0.0f;                    // 误差信号
+    float y = 0.0f;                    // 滤波器输出（回声估计）
+
+    for (int n = 0; n < len; n++) {
+        // 滚动延迟线
+        for (int i = FILTER_LEN - 1; i > 0; i--) {
+            x[i] = x[i - 1];
+        }
+        x[0] = far_end_signal[n];  // 新样本插入最前端
+
+        // 滤波器加权和（回声估计）
+        y = 0.0f;
+        for (int i = 0; i < FILTER_LEN; i++) {
+            y += w[i] * x[i];
+        }
+
+        // 计算误差 e(n) = d(n) - y(n)
+        e = mic_signal[n] - y;
+        out_signal[n] = e;  // 输出误差信号（即消除回声后的信号）
+
+        // === 双讲检测 ===
+        float mic_power = mic_signal[n] * mic_signal[n];
+        float far_power = EPSILON;  // 防止除0
+        for (int i = 0; i < FILTER_LEN; i++) {
+            far_power += x[i] * x[i];
+        }
+
+        int double_talk = (mic_power / far_power > DTD_THRESH) ? 1 : 0;
+
+        // === NLMS 更新权重 ===
+        if (!double_talk) {
+            for (int i = 0; i < FILTER_LEN; i++) {
+                w[i] += (MU * e * x[i]) / far_power;
+            }
+        }
+    }
+}
+```
+
+✅ 每个部分解释：
+
+🎯 滤波器结构
+- x[i] 是远端信号延迟线
+- w[i] 是滤波器系数，表示回声路径响应
+- y 是估计出的回声信号
+
+🎯 NLMS 更新核心：
+
+$$
+w_i(n+1) = w_i(n) + \mu \cdot \frac{e(n) \cdot x_i(n)}{\varepsilon + \|x(n)\|^2}
+$$
+
+🎯 双讲检测逻辑：
+mic_power / far_power > DTD_THRESH
+- 当麦克风信号比远端信号强很多时，说明可能是用户在说话（双讲）
+- 此时跳过权重更新
+
+下面是一个完整的可运行 Python 程序，模拟了 NLMS 回声消除系统，包括：
+- 模拟远端语音（正弦信号）
+- 模拟真实回声路径（FIR 滤波器卷积）
+- 加入本地讲话（近端人声）
+- 使用 NLMS 算法自适应估计回声路径并消除回声
+- 可视化：
+  - 原始远端信号
+  - 麦克风信号（含回声 + 本地讲话）
+  - 回声抵消后输出
+  - 滤波器估计过程
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 参数配置
+fs = 8000                         # 采样率
+duration = 1.0                    # 信号持续时间（秒）
+N = int(fs * duration)            # 采样点数
+filter_len = 64                   # 回声路径长度
+mu = 0.1                          # NLMS 步长
+eps = 1e-8                        # 防止除零
+
+# 1. 模拟远端信号（sin + 噪声）
+t = np.linspace(0, duration, N)
+far_end = 0.5 * np.sin(2 * np.pi * 440 * t) + 0.05 * np.random.randn(N)
+
+# 2. 模拟真实回声路径
+true_echo_path = np.random.randn(filter_len) * np.hanning(filter_len)
+true_echo_path /= np.linalg.norm(true_echo_path)  # 单位化
+echo_signal = np.convolve(far_end, true_echo_path, mode='full')[:N]
+
+# 3. 模拟近端人声（后半段双讲）
+near_end = np.zeros(N)
+near_end[N // 2:] = 0.3 * np.sin(2 * np.pi * 220 * t[N // 2:])
+
+# 4. 麦克风接收信号 = 回声 + 近端人声
+mic_signal = echo_signal + near_end
+
+# 5. 初始化自适应滤波器参数
+w = np.zeros(filter_len)     # 自适应滤波器权重
+x_buf = np.zeros(filter_len) # 输入缓存
+out_signal = np.zeros(N)     # 回声抵消后的输出
+error_curve = np.zeros(N)    # 残差信号（误差）
+
+# 6. NLMS + DTD 主循环
+for n in range(N):
+    # 更新输入缓存
+    x_buf[1:] = x_buf[:-1]
+    x_buf[0] = far_end[n]
+
+    # 滤波器输出估计的回声
+    y_hat = np.dot(w, x_buf)
+
+    # 实际误差信号（麦克风 - 估计回声）
+    e = mic_signal[n] - y_hat
+    error_curve[n] = e
+    out_signal[n] = e  # 去回声后的输出
+
+    # 简单双讲检测（energy 比值法）
+    if np.dot(x_buf, x_buf) > 0.001 and np.abs(e) < 1.0:
+        # NLMS 权重更新
+        norm_factor = np.dot(x_buf, x_buf) + eps
+        w += (mu / norm_factor) * e * x_buf
+
+# 7. 绘图显示结果
+plt.figure(figsize=(12, 10))
+
+plt.subplot(4, 1, 1)
+plt.title("Far-end Signal (Speaker Output)")
+plt.plot(far_end)
+plt.ylabel("Amplitude")
+
+plt.subplot(4, 1, 2)
+plt.title("Mic Signal (Echo + Near-end Speech)")
+plt.plot(mic_signal)
+plt.ylabel("Amplitude")
+
+plt.subplot(4, 1, 3)
+plt.title("Output after Echo Cancellation")
+plt.plot(out_signal)
+plt.ylabel("Amplitude")
+
+plt.subplot(4, 1, 4)
+plt.title("Estimated Echo Path (Filter Coefficients)")
+plt.plot(w, label="Estimated")
+plt.plot(true_echo_path, '--', label="True", alpha=0.7)
+plt.legend()
+plt.xlabel("Taps")
+
+plt.tight_layout()
+plt.show()
+```
 
 ## 总结与实践建议 💡
 
