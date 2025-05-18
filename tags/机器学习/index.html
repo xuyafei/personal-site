@@ -73,7 +73,14 @@ $$ f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b $$
 $$ y_i (\mathbf{w}^\top \mathbf{x}_i + b) > 0, \quad \forall i $$
 含义是：
 如果 $y_i = +1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b > 0$ 如果 $y_i = -1$，则要求 $\mathbf{w}^\top \mathbf{x}_i + b &lt; 0$ 也就是说，样本在超平面 $f(\mathbf{x}) = 0$ 的同一侧上分别对应一个类别。
-...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 线性可分的二分类问题详解" href=https://xuyafei.github.io/personal-site/posts/detailed-explanation-of-linearly-separable-binary-classification-problem/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 线性可分的二分类问题详解" href=https://xuyafei.github.io/personal-site/posts/detailed-explanation-of-linearly-separable-binary-classification-problem/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>语音活动检测（VAD）技术详解</h2></header><div class=entry-content><p>语音活动检测（VAD）概述 语音活动检测（Voice Activity Detection，VAD）是音频信号处理中的基础模块，用于判断一段音频中是否包含人声。它在实时语音通信、语音识别、音频处理等领域发挥着重要作用。
+VAD 的主要应用场景 1. 消除静音段，降低带宽和计算资源消耗 在 VoIP 等实时语音通信中，VAD 可以：
+停止静音段的音频编码与发送 丢弃静音包或减少帧率 暂停对静音段的播放 发送 Comfort Noise（舒适噪声）包替代静音数据 2. 配合音频处理模块使用 VAD 可以与以下模块协同工作：
+回声消除（AEC）：防止在静音时更新错误的回声模型 噪声抑制（NS）：帮助区分"语音+噪声"与"纯噪声" 自动增益控制（AGC）：防止对静音或噪声进行放大 3. 触发语音识别（ASR）引擎 VAD 可用于：
+检测语音开始，启动语音识别引擎 检测语音结束，终止识别并提交结果 控制"有声录音"功能 4. 优化语音通信 在视频会议等场景中：
+静音压缩（silence compression） 发送 CN（Comfort Noise）包 减少传输帧率 VAD 的基本原理 特征提取 VAD 通常基于以下特征进行判断：
+短时能量（Short-Time Energy） E = \sum_{n=0}^{N-1} x[n]^2 过零率（Zero-Crossing Rate, ZCR） \text{ZCR} = \frac{1}{2N} \sum_{n=1}^{N} | \text{sgn}(x[n]) - \text{sgn}(x[n-1]) | 谱熵（Spectral Entropy） 衡量信号频谱的"有序性" 语音谱结构复杂，熵值较高 短时谱幅度 语音的频谱幅度分布与噪声不同 VAD 的类型 基于规则的传统 VAD
+...</p></div><footer class=entry-footer><span title='2024-04-22 00:00:00 +0000 UTC'>April 22, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 语音活动检测（VAD）技术详解" href=https://xuyafei.github.io/personal-site/posts/voice_activity_detection/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
