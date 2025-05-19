@@ -31,11 +31,11 @@ url = "/personal-site/posts/" # 明确包含 baseURL 的子目录
 
 [[params.profileMode.buttons]]
 name = "标签"
-url = "/tags"
+url = "/personal-site/tags/" # 明确包含 baseURL 的子目录
 
 [[params.profileMode.buttons]]
 name = "分类"
-url = "/categories"
+url = "/personal-site/categories/" # 明确包含 baseURL 的子目录
 
 # 社交图标链接
 [[params.socialIcons]]
