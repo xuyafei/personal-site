@@ -1,6 +1,6 @@
 ---
 title: "音频数字化：采样与量化详解"
-date: 2024-04-22
+date: 2025-05-23
 draft: false
 description: "深入解析音频数字化的两个核心概念：采样（Sampling）和量化（Quantization），从原理到实践，从基础到进阶"
 tags: ["音频处理", "数字音频", "采样", "量化", "音频工程"]
