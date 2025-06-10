@@ -64,7 +64,7 @@ delete ptr;                    // 需要手动释放
 | MyClass obj; | ✅ | ❌ |
 | MyClass obj(); (注意：函数声明) | ❌ | ❌ |
 | MyClass* ptr = new MyClass(); | ❌ | ✅ |
-| auto p = std::make_shared<MyClass>(); | ❌ | ✅ |
+| auto p = std::make_shared\&lt;MyClass\&gt;(); | ❌ | ✅ |
 
 ## ✅ 四、栈 vs 堆示意图
 
@@ -89,9 +89,9 @@ void foo() {
 现代 C++ 建议使用 智能指针 管理堆上对象，避免 new/delete。
 
 ```cpp
-#include <memory>
+#include \&lt;memory\&gt;
 
-std::shared_ptr<MyClass> sp = std::make_shared<MyClass>(); // 堆上对象
+std::shared_ptr\&lt;MyClass\&gt; sp = std::make_shared\&lt;MyClass\&gt;(); // 堆上对象
 ```
 
 优点：
@@ -171,7 +171,7 @@ int main() {
 
 #### ❌ 示例 2：内存泄漏导致堆耗尽
 ```cpp
-#include <vector>
+#include \&lt;vector\&gt;
 
 int main() {
     while (true) {
@@ -286,8 +286,8 @@ MyClass* p = new (buffer) MyClass();  // 不在堆上分配，而是指定内存
 
 ### ✅ 七、智能指针 + new（推荐）
 ```cpp
-std::unique_ptr<MyClass> up = std::make_unique<MyClass>();
-std::shared_ptr<MyClass> sp = std::make_shared<MyClass>();
+std::unique_ptr\&lt;MyClass\&gt; up = std::make_unique\&lt;MyClass\&gt;();
+std::shared_ptr\&lt;MyClass\&gt; sp = std::make_shared\&lt;MyClass\&gt;();
 ```
 
 ### ✅ 八、补充：new 自定义行为（重载 operator new）
@@ -295,7 +295,7 @@ std::shared_ptr<MyClass> sp = std::make_shared<MyClass>();
 你可以重载 operator new 来控制内存分配行为：
 ```cpp
 void* operator new(std::size_t size) {
-    std::cout << "Custom new called. Size = " << size << std::endl;
+    std::cout \&lt;\&lt; "Custom new called. Size = " \&lt;\&lt; size \&lt;\&lt; std::endl;
     return malloc(size);
 }
 ```
@@ -311,12 +311,12 @@ void* operator new(std::size_t size) {
 
 ### ✅ 示例对比
 ```cpp
-#include <iostream>
+#include \&lt;iostream\&gt;
 
 class MyClass {
 public:
-    MyClass() { std::cout << "Constructor\n"; }
-    ~MyClass() { std::cout << "Destructor\n"; }
+    MyClass() { std::cout \&lt;\&lt; "Constructor\n"; }
+    ~MyClass() { std::cout \&lt;\&lt; "Destructor\n"; }
 };
 
 int main() {
