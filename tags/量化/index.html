@@ -9,7 +9,14 @@
 模拟信号就像电影胶片，画面是连续的 采样就像把胶片转换成数字视频，每秒截取24帧画面 采样率越高，就像每秒截取的画面越多，动作越流畅 2. 采样率（Sampling Rate） 采样率决定了每秒采集多少个数据点。
 采样率 每秒采样次数 应用场景 44.1 kHz 44,100次 CD音质 48 kHz 48,000次 专业设备/视频音轨 96 kHz 96,000次 高保真录音 192 kHz 192,000次 超高保真录音 通俗解释 采样率就像"拍照频率"：
 44.1 kHz 意味着每秒"拍"44,100张"声音照片" 采样率越高，抓住的声音细节越多 就像高速摄影机，可以捕捉到更细微的变化 3. 奈奎斯特定律（Nyquist Theorem） 奈奎斯特定律是采样理论的基础：
-...</p></div><footer class=entry-footer><span title='2025-05-23 00:00:00 +0000 UTC'>May 23, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 音频数字化：采样与量化详解" href=https://xuyafei.github.io/personal-site/posts/audio_sampling_quantization/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
+...</p></div><footer class=entry-footer><span title='2025-05-23 00:00:00 +0000 UTC'>May 23, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 音频数字化：采样与量化详解" href=https://xuyafei.github.io/personal-site/posts/audio_sampling_quantization/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>风险与收益建模基础完全指南</h2></header><div class=entry-content><p>风险与收益建模基础完全指南 🧠 Part 1：什么是收益？什么是风险？ ✅ 收益（Return） 资产价格从某个时间点变化到另一个时间点所带来的回报。常见有两种形式：
+简单收益率： $$R_t = \frac{P_t - P_{t-1}}{P_{t-1}} = \frac{\Delta P}{P_{t-1}}$$
+对数收益率（连续复利）： $$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)$$
+⚠️ 对数收益率在数学推导中更方便，且可加性好（多期收益 = 各期之和）
+✅ 对数收益率详解 一、定义 对数收益率的计算公式如下： $$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)$$
+其中：
+$r_t$：时间 t 的对数收益率 $P_t$：时间 t 的价格 $P_{t-1}$：时间 t-1 的价格 $\ln$：自然对数（以 e 为底） 二、为什么使用对数收益率？ 优点 解释 1️⃣ 可以相加 多期的对数收益率可以直接相加：$r_{1,3} = r_{1,2} + r_{2,3}$ 这在统计和建模中很方便 2️⃣ 对称性更好 正收益和负收益的对称性更合理，比如涨 50% 和跌 50%，对数收益率表现更准确 3️⃣ 适合连续复利 假设资产是以"连续复利"方式增长（在金融建模中常见），则对数收益率就是精确的增长率 4️⃣ 更适合正态分布假设 对数收益率近似服从正态分布，有助于建立风险模型（如 VaR） 三、与普通收益率的关系 普通收益率（线性）： $$R_t = \frac{P_t - P_{t-1}}{P_{t-1}} = \frac{P_t}{P_{t-1}} - 1$$
+...</p></div><footer class=entry-footer><span title='2024-05-27 00:00:00 +0000 UTC'>May 27, 2024</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 风险与收益建模基础完全指南" href=https://xuyafei.github.io/personal-site/posts/risk_return_modeling/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://xuyafei.github.io/personal-site/>我的博客</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
