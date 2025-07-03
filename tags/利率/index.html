@@ -15,17 +15,7 @@
 2. 市场利率变化会影响债券的"吸引力" 具体例子：
 你持有一张债券，面值 ¥1000，票面利率 5%，每年利息是 ¥50 市场利率突然变成了 6%（新发债券都给 ¥60 利息） 买家会想： “我为啥要用 ¥1000 买你的旧债券，每年只赚 ¥50？我去市场上买新的，一年可以赚 ¥60！”
 你的债券就不香了。为了能卖出去，只能降低价格，比如：
-...</p></div><footer class=entry-footer><span title='2025-06-20 00:00:00 +0000 UTC'>June 20, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 量化交易入门指南：第5天 - 债券、利率与金融市场定价锚" href=https://xuyafei.github.io/personal-site/posts/quantitative_trading_day5/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>债券与利率：金融市场的定价锚</h2></header><div class=entry-content><p>本文详细介绍了债券与利率的关系，以及它们如何影响整个金融市场的定价。通过大量实例和详细解释，帮助投资者理解债券定价机制和利率对资产估值的影响。
-债券与利率：金融市场的定价锚 一、什么是债券？ 债券就是一个"借条"：你借钱给发行方，对方承诺未来还本付息。
-关键要素 名称 含义 面值 到期时还给你的本金，通常是 100 票面利率 每年付的利息，比如 5% 就是每年付你 5 元 期限 债券多久还钱，比如 3 年期、10 年期 价格 债券在市场上实际交易的价格（可能高于或低于面值） 二、债券价格 vs. 利率：一个涨，另一个跌 债券价格与市场利率成反比关系。
-基本原理 📌 举个例子：
-有一张票面利率 5% 的债券 市场利率升到 6%，别人可以买到更高收益的债 → 你的债券就不值钱了 所以你的债券价格会下跌 反过来，如果市场利率降到 4%，你的 5% 债券就成了香饽饽，价格会上涨。
-为什么债券价格会波动？ 1. 债券价格不是固定的，它每天都在波动（除非你一直持有到期） 你说的"定好了"没错，是指：
-你买入时确实知道：每年利息多少，到期还多少钱（本金） 但这个前提是：你持有到期，不在中间转手 ⚠️ 但如果你中途想卖出债券，市场上就有人会重新评估它的价值，这时候价格就可能上涨或下跌。
-2. 市场利率变化会影响债券的"吸引力" 我们看一个具体例子，说明为啥价格会跌：
-🎯 假设：
-你持有一张债券，面值 ¥1000，票面利率 5%，每年利息是 ¥50 市场利率突然变成了 6%（新发债券都给 ¥60 利息） 那买家就会想： “我为啥要用 ¥1000 买你的旧债券，每年只赚 ¥50？我去市场上买新的，一年可以赚 ¥60！”
-...</p></div><footer class=entry-footer><span title='2025-06-15 00:00:00 +0000 UTC'>June 15, 2025</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 债券与利率：金融市场的定价锚" href=https://xuyafei.github.io/personal-site/posts/bond_interest_rate/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型</h2></header><div class=entry-content><p>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型 学习时间：60分钟
+...</p></div><footer class=entry-footer><span title='2025-06-20 00:00:00 +0000 UTC'>June 20, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 量化交易入门指南：第5天 - 债券、利率与金融市场定价锚" href=https://xuyafei.github.io/personal-site/posts/quantitative_trading_day5/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型</h2></header><div class=entry-content><p>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型 学习时间：60分钟
 本文为量化交易学习系列第6天内容，聚焦利率在资产定价中的核心作用，系统梳理折现模型、期限结构理论、利率在量化因子中的应用，并结合实战案例帮助你理解利率如何成为金融市场的"定价锚"。
 一、为什么利率是"资产价格之锚"？ 1. 折现模型中的核心角色：利率 在所有基于现金流的估值方法（如 DCF、债券定价、房地产估值等）中，利率承担着两重角色：
 时间价值：未来的钱不如现在值钱 → 需要折现 风险补偿：风险越高，要求的收益率越高 → 折现率上升 → 估值下降 核心公式回顾：
