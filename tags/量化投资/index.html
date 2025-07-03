@@ -41,20 +41,20 @@
 2. 举例说明 股票交易中的杠杆（融资融券）
 用 10 万元自有资金，通过券商再借 10 万元，总共买入 20 万元股票 如果股价上涨 10%，总资产变为 22 万，净赚 2 万，收益率 = 20%（而不是10%） 期货交易中的天然杠杆
 只需缴纳保证金（如10%），就能控制整份期货合约 如果用 1 万元保证金买入名义价值 10 万元的原油期货 原油涨 5%，你可能盈利 5000 元，收益率 = 50% 3. 特点 高风险高收益：收益成倍放大，损失也一样 强制平仓风险：如果亏损过多，保证金不足，平台会强平头寸 在衍生品、外汇、房地产投资中都很常见 三个概念关系总结 概念 作用/含义 举例 标的 衍生品价格所依赖的资产 原油是原油期货的标的资产 对冲 用另一笔投资抵消风险 买股的同时买入股指看跌期权 杠杆 放大投资规模与风险 用1万元操作10万元的期货合约 四、头寸（Position） “头寸”（英文：position）是一个金融术语，表示投资者或交易者在某一资产上的持仓情况。
-...</p></div><footer class=entry-footer><span title='2025-06-17 00:00:00 +0000 UTC'>June 17, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 量化交易入门指南：第2天 - 核心概念与金融工具详解" href=https://xuyafei.github.io/personal-site/posts/quantitative_trading_day2/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>资产配置与均值-方差理论（Mean-Variance Theory）</h2></header><div class=entry-content><p>资产配置与均值-方差理论（Mean-Variance Theory） 这是现代投资组合理论的核心。它不仅是基金经理配置资产的基础，也是量化多资产策略、ETF构建、风险平衡策略（如风险平价）等模型的出发点。
-🎯 学习目标 理解以下核心内容：
-投资组合收益与风险的数学表示 投资组合的协方差与波动性 Markowitz 均值-方差理论（有效前沿） 无风险资产的引入 & 最优资产配置线（CAL） Python 代码实践（手动或附带代码） 🧠 理论学习 ✅ 一、组合收益和风险如何计算？ 假设你有两个资产 A, B，权重分别为 w_A, w_B，期望收益为 E[R_A], E[R_B]，波动率为 \sigma_A, \sigma_B，协方差为 \text{Cov}(A,B)
+...</p></div><footer class=entry-footer><span title='2025-06-17 00:00:00 +0000 UTC'>June 17, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 量化交易入门指南：第2天 - 核心概念与金融工具详解" href=https://xuyafei.github.io/personal-site/posts/quantitative_trading_day2/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>量化交易入门指南：第8天 资产配置与均值-方差理论（Mean-Variance Theory）</h2></header><div class=entry-content><p>资产配置与均值-方差理论（Mean-Variance Theory） 这是现代投资组合理论的核心。它不仅是基金经理配置资产的基础，也是量化多资产策略、ETF构建、风险平衡策略（如风险平价）等模型的出发点。
+学习目标 理解以下核心内容：
+投资组合收益与风险的数学表示 投资组合的协方差与波动性 Markowitz 均值-方差理论（有效前沿） 无风险资产的引入 & 最优资产配置线（CAL） Python 代码实践（手动或附带代码） 理论学习 1.组合收益和风险如何计算？ 假设你有两个资产 A, B，权重分别为 $w_A$, $w_B$，期望收益为 $E[R_A]$, $E[R_B]$，波动率为 $\sigma_A$, $\sigma_B$，协方差为 $\text{Cov}(A,B)$
 组合预期收益：
 $$E[R_p] = w_A E[R_A] + w_B E[R_B]$$
 组合方差（风险）：
 $$\sigma_p^2 = w_A^2 \sigma_A^2 + w_B^2 \sigma_B^2 + 2w_Aw_B \cdot \text{Cov}(A,B)$$
 如果有多个资产（如 n 个），就扩展成协方差矩阵形式：
 $$\sigma_p^2 = \mathbf{w}^T \Sigma \mathbf{w}$$
-✅ 二、组合期望收益是怎么计算的？ “期望是怎么计算的”，意思是：我们怎么得到 E[R_A], E[R_B]？
+2.组合期望收益是怎么计算的？ “期望是怎么计算的”，意思是：我们怎么得到 $E[R_A]$, $E[R_B]$？
 答案是：基于历史数据或未来预期来估算的。
 例如：
-如果用历史平均： $$E[R_A] = \frac{1}{T} \sum_{t=1}^{T} R_{A,t}$$ 其中 R_{A,t} 是第 t 期的实际收益率。 如果是基于分析师预测、基本面判断，可以人为设定一个预期收益。 ✅ 三、波动率是固定的吗？ 不是"固定的"，而是基于一段历史数据估算的，并且会随着数据更新不断变化。
-...</p></div><footer class=entry-footer><span title='2025-06-09 00:00:00 +0000 UTC'>June 9, 2025</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 资产配置与均值-方差理论（Mean-Variance Theory）" href=https://xuyafei.github.io/personal-site/posts/%E8%B5%84%E4%BA%A7%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%9D%87%E5%80%BC-%E6%96%B9%E5%B7%AE%E7%90%86%E8%AE%BAmean-variance-theory/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型</h2></header><div class=entry-content><p>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型 学习时间：60分钟
+如果用历史平均： $$E[R_A] = \frac{1}{T} \sum_{t=1}^{T} R_{A,t}$$ 其中 $R_{A,t}$ 是第 t 期的实际收益率。 如果是基于分析师预测、基本面判断，可以人为设定一个预期收益。 3.波动率是固定的吗？ 不是"固定的"，而是基于一段历史数据估算的，并且会随着数据更新不断变化。
+...</p></div><footer class=entry-footer><span title='2025-06-09 00:00:00 +0000 UTC'>June 9, 2025</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;徐亚飞</footer><a class=entry-link aria-label="post link to 量化交易入门指南：第8天 资产配置与均值-方差理论（Mean-Variance Theory）" href=https://xuyafei.github.io/personal-site/posts/quantitative_trading_day8/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型</h2></header><div class=entry-content><p>量化交易入门指南：第6天 - 深度扩展学习：利率与资产定价模型 学习时间：60分钟
 本文为量化交易学习系列第6天内容，聚焦利率在资产定价中的核心作用，系统梳理折现模型、期限结构理论、利率在量化因子中的应用，并结合实战案例帮助你理解利率如何成为金融市场的"定价锚"。
 一、为什么利率是"资产价格之锚"？ 1. 折现模型中的核心角色：利率 在所有基于现金流的估值方法（如 DCF、债券定价、房地产估值等）中，利率承担着两重角色：
 时间价值：未来的钱不如现在值钱 → 需要折现 风险补偿：风险越高，要求的收益率越高 → 折现率上升 → 估值下降 核心公式回顾：
