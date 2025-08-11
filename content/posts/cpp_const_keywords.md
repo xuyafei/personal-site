@@ -4,7 +4,7 @@ date: 2025-06-03
 draft: false
 description: "深入理解C++中的const、constexpr、consteval和constinit关键字"
 tags: ["C++", "编程", "const", "教程"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

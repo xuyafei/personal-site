@@ -1,10 +1,10 @@
 ---
-title: "量化交易入门指南：第8天 资产配置与均值-方差理论（Mean-Variance Theory）"
-date: 2025-06-09
+title: "量化交易入门指南：第8天 - 资产配置与均值-方差理论（Mean-Variance Theory）"
+date: 2025-07-01
 draft: false
 description: "深入理解现代投资组合理论的核心 - 均值-方差理论，包括投资组合收益与风险的数学表示、协方差与波动性、Markowitz有效前沿等核心概念"
 tags: ["投资组合", "量化投资", "风险管理", "资产配置"]
-categories: ["量化投资"]
+categories: ["量化交易"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

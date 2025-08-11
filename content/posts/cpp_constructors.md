@@ -4,7 +4,7 @@ date: 2025-05-23
 draft: false
 description: "深入解析C++中各种构造函数的类型、使用场景和最佳实践，包括默认构造、有参构造、拷贝构造、移动构造和委托构造"
 tags: ["C++", "构造函数", "移动语义", "拷贝构造", "委托构造"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

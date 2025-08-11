@@ -4,7 +4,7 @@ date: 2025-06-09
 draft: false
 description: "深入理解C++中的内存管理机制，包括栈、堆、智能指针等核心概念"
 tags: ["C++", "内存管理", "编程", "教程"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

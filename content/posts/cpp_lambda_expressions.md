@@ -1,8 +1,8 @@
 ---
 title: "C++ Lambda表达式完全指南：从基础到高级应用"
 date: 2025-06-15
-author: "Your Name"
-categories: ["C++", "编程语言", "教程"]
+author: "徐亚飞"
+categories: ["C++"]
 tags: ["C++", "Lambda", "函数式编程", "现代C++", "C++11", "C++14", "C++17", "C++20"]
 description: "深入探讨C++ Lambda表达式的各个方面，从基础语法到高级应用，包括捕获机制、生命周期管理、性能优化等。通过大量实例代码，帮助读者全面掌握Lambda表达式的使用技巧和最佳实践。"
 toc: true

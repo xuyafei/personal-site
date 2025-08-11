@@ -1,7 +1,13 @@
 ---
 title: "全面解析C++中类(class)与结构体(struct)的区别"
-date: 2025-04-26T00:14:00+08:00 # 使用当前时间作为示例
-draft: false
+date: 2025-04-26
+author: "徐亚飞"
+categories: ["C++", "编程语言", "教程"]
+tags: ["C++"]
+description: "深入探讨C++中类(class)与结构体(struct)的区别"
+toc: true
+toc_sticky: true
+comments: true
 ---
 
 # 全面解析C++中类(class)与结构体(struct)的区别

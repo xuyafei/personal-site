@@ -1,6 +1,6 @@
 ---
 title: "量化交易入门指南：第9天 - 多因子选股模型（Factor Investing）"
-date: 2025-06-24
+date: 2025-07-03
 draft: false
 description: "量化交易学习系列第9天：系统讲解多因子选股模型的原理、因子分类、组合方法、实战流程与Python实现，帮助你掌握现代量化基金的Alpha策略核心。"
 tags: ["量化交易", "多因子", "选股模型", "Alpha", "因子投资", "Python实战"]

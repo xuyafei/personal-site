@@ -1,10 +1,10 @@
 ---
-title: "量化交易入门指南：第7天 风险与收益建模基础完全指南"
-date: 2024-05-27
+title: "量化交易入门指南：第7天 - 风险与收益建模基础完全指南"
+date: 2024-06-28
 draft: false
 description: "深入理解金融中的风险与收益建模，包括收益率计算、风险度量、夏普比率和CAPM模型等核心概念"
 tags: ["金融", "量化", "风险管理", "投资", "教程"]
-categories: ["量化金融"]
+categories: ["量化交易"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

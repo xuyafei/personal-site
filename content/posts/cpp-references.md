@@ -1,26 +1,13 @@
 ---
 title: "C++ 引用详解：从基础到高级应用"
-date: 2024-04-07
-lastmod: 2024-04-07
-draft: false
-weight: 2
-# 作者信息
+date: 2025-04-07
 author: "徐亚飞"
-# 文章描述
+categories: ["C++", "编程语言", "教程"]
+tags: ["C++"]
 description: "全面解析 C++ 引用的概念、用法和最佳实践，包括左值引用、右值引用、引用折叠等高级特性"
-# 文章关键词
-keywords: ["C++", "引用", "左值引用", "右值引用", "编程"]
-# 文章分类和标签
-tags: ["C++", "编程", "引用"]
-categories: ["编程"]
-# 文章设置
-ShowToc: true
-TocOpen: true
-ShowReadingTime: true
-ShowWordCount: true
-ShowShareButtons: true
-ShowBreadCrumbs: true
-ShowCodeCopyButtons: true
+toc: true
+toc_sticky: true
+comments: true
 ---
 
 ## 引言

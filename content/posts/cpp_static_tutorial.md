@@ -4,7 +4,7 @@ date: 2025-06-02
 draft: false
 description: "深入理解C++中static关键字的各种用法和应用场景"
 tags: ["C++", "编程", "static", "教程"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

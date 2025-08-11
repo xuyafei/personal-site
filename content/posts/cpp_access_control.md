@@ -4,7 +4,7 @@ date: 2025-05-27
 draft: false
 description: "深入解析C++访问控制机制，从基础概念到高级应用，从原理到实践"
 tags: ["C++", "面向对象", "访问控制", "封装", "继承"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

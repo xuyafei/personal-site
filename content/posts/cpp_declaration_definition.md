@@ -4,7 +4,7 @@ date: 2025-06-02
 draft: false
 description: "深入理解C++中的声明与定义、生命周期、作用域和链接性概念"
 tags: ["C++", "编程", "声明", "定义", "教程"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true

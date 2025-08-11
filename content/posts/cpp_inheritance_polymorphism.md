@@ -4,7 +4,7 @@ date: 2025-05-27
 draft: false
 description: "深入解析C++继承与多态机制，从基础概念到高级特性，从原理到实践"
 tags: ["C++", "面向对象", "继承", "多态", "虚函数"]
-categories: ["编程语言"]
+categories: ["C++"]
 author: "徐亚飞"
 showToc: true
 TocOpen: true
